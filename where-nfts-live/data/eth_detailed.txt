@@ -1,0 +1,622 @@
+SELECT
+    count() AS cnt,
+    protocol(Transfer_URI) AS proto,
+    cutToFirstSignificantSubdomain(Transfer_URI) AS domain,
+    uniq(Transfer_Currency_SmartContract) AS uniq_smart_contracts,
+    uniq(Transfer_Id) AS uniq_ids,
+    any(Transfer_URI) AS example_uri,
+    any(Transfer_Currency_Name) AS example_name,
+    any(Transfer_Currency_Symbol) AS example_symbol,
+    lower(hex(any(Transfer_Currency_SmartContract))) AS example_smart_contract
+FROM eth.transfers_nft_currency
+WHERE (Transfer_Currency_HasURI = 1) AND (Transfer_URI != '')
+GROUP BY
+    proto,
+    domain
+ORDER BY uniq_ids DESC
+LIMIT 50
+FORMAT Vertical
+
+Query id: d8a6a36f-7556-4198-b52a-7999edb22716
+
+Row 1:
+──────
+cnt:                    15725045
+proto:                  https
+domain:                 immutable.com
+uniq_smart_contracts:   28
+uniq_ids:               7052744
+example_uri:            https://api.immutable.com/asset/0x9839499c38acbd6e11b4af0e50cc2259bffeac51/776
+example_name:           GU: Promethean Chain
+example_symbol:         GU:PROMETHEANCHAIN
+example_smart_contract: 9839499c38acbd6e11b4af0e50cc2259bffeac51
+
+Row 2:
+──────
+cnt:                    3741870
+proto:                  https
+domain:                 opensea.io
+uniq_smart_contracts:   1156
+uniq_ids:               2053364
+example_uri:            https://api.opensea.io/api/v1/metadata/0x196fd9bfdc00eedc2b08d32380e73b7ade02605f/1
+example_name:           Ashley's Birthday Present
+example_symbol:         ASHLY
+example_smart_contract: 196fd9bfdc00eedc2b08d32380e73b7ade02605f
+
+Row 3:
+──────
+cnt:                    78569301
+proto:                  ipfs
+domain:
+uniq_smart_contracts:   114976
+uniq_ids:               960468
+example_uri:            ipfs://QmUxXggfyrr4JzAo5r8nr4DJv7ZBoS96pymbv5PkDjMSQs//70.json
+example_name:           TheRevolution
+example_symbol:         1776
+example_smart_contract: 40f8a8b7479f6ed1737f0dcf49c19b11753d7571
+
+Row 4:
+──────
+cnt:                    11669163
+proto:                  data
+domain:
+uniq_smart_contracts:   11808
+uniq_ids:               709175
+example_uri:            data:application/json;base64,eyJuYW1lIjogIk1hZCBNb3VzZSAjMiIsICJkZXNjcmlwdGlvbiI6ICI1NTU1IE1hZCBNb3VzZSBDaXJjdXMgTkZUcyBuYXRpdmUgdG8gdGhlIEV0aGVyZXVtIGJsb2NrY2hhaW4uIEVhY2ggbmV3bHkgY3JlYXRlZCBORlQgYmVnaW5zIGF0IExldmVsIDEgYW5kIGlzIGFzc2lnbmVkIG9uZSBvZiB0aGUgZm9sbG93aW5nIHJvbGVzOiBDbG93biwgSnVnZ2xlciwgTWFnaWNpYW4sIFRyYWluZXIsIG9yIFBlcmZvcm1lci4gTWFkIE1vdXNlIENpcmN1cyBORlQgaG9sZGVycyB3aWxsIGJlIGFibGUgdG8gdGFrZSBwYXJ0IGluIHRoZSBsZXZlbGxpbmcgc3lzdGVtIHRvIGV2b2x2ZSB0aGVpciBORlRzIGZyb20gTGV2ZWwgMSB0byBMZXZlbCAzLiIsICJpbWFnZSI6ICJpcGZzOi8vUW1QcWdpSE5COEZtcTJmUjIxUnpkM0tMZXQ1NWlMNlhZQnRMckhadFFtUEF2by8yLnBuZyIsICJpZCI6IDIsICJkbmEiOiAiMHhkM2ZkNGIxY2NlMjlmZjE2OWU3MmM4NjA3NmYzOWM5NjA3YTE5OTQ0MmVkZDVmMDI1ZTAxZWMwZWNlNmY2ZjM1IiwgImF0dHJpYnV0ZXMiOiBbeyJ0cmFpdF90eXBlIjogIkxldmVsIiwgInZhbHVlIjogMX0sIHsidHJhaXRfdHlwZSI6ICJSb2xlIiwgInZhbHVlIjogIlRyYWluZXIifSwgeyJ0cmFpdF90eXBlIjogIlJhcml0eSIsICJ2YWx1ZSI6ICJDb21tb24ifSwgeyJ0cmFpdF90eXBlIjogIkJhY2tncm91bmQiLCAidmFsdWUiOiAiUHVycGxlIn0sIHsidHJhaXRfdHlwZSI6ICJTY2VuZSIsICJ2YWx1ZSI6ICJCYWJ5IERvZG8ifSwgeyJ0cmFpdF90eXBlIjogIkZ1ciIsICJ2YWx1ZSI6ICJCcm93biJ9LCB7InRyYWl0X3R5cGUiOiAiRXhwcmVzc2lvbiIsICJ2YWx1ZSI6ICJTaHkifSwgeyJ0cmFpdF90eXBlIjogIkdsYXNzZXMiLCAidmFsdWUiOiAiTm9uZSJ9LCB7InRyYWl0X3R5cGUiOiAiSGF0IiwgInZhbHVlIjogIkZhcm1lciJ9LCB7InRyYWl0X3R5cGUiOiAiQm9keSIsICJ2YWx1ZSI6ICJHZW5pZSJ9XX0=
+example_name:           MadMouseCircus
+example_symbol:         MMC
+example_smart_contract: 3ad30c5e2985e960e89f4a28efc91ba73e104b77
+
+Row 5:
+──────
+cnt:                    644979
+proto:                  https
+domain:                 godsunchained.com
+uniq_smart_contracts:   5
+uniq_ids:               606886
+example_uri:            https://api.godsunchained.com/collectable/251
+example_name:           GU Collectable
+example_symbol:         TRINKET
+example_smart_contract: a5e5be69c923c701ae6ac8f1f5936af3ae610c68
+
+Row 6:
+──────
+cnt:                    524389
+proto:                  https
+domain:                 codexprotocol.com
+uniq_smart_contracts:   3
+uniq_ids:               496343
+example_uri:            https://api.codexprotocol.com/token-metadata/1335
+example_name:           Codex Record
+example_symbol:         CR
+example_smart_contract: 8853b05833029e3cf8d3cbb592f9784fa43d2a79
+
+Row 7:
+──────
+cnt:                    1197123
+proto:                  https
+domain:                 sorare.com
+uniq_smart_contracts:   5
+uniq_ids:               337697
+example_uri:            https://api.sorare.com/api/v1/cards/12957075308270136064910524077907860660584242334831280299233332482984145613
+example_name:           Sorare
+example_symbol:         SOR
+example_smart_contract: 629a673a8242c2ac4b7b8c5d8735fbeac21a6205
+
+Row 8:
+──────
+cnt:                    415646
+proto:                  https
+domain:                 hypernft.world
+uniq_smart_contracts:   5
+uniq_ids:               293326
+example_uri:            https://resource.hypernft.world/json/228759
+example_name:           HyperNFT_HOS_1.0
+example_symbol:         HHOS1
+example_smart_contract: 929832b1f1515cf02c9548a0ff454f1b0e216b18
+
+Row 9:
+───────
+cnt:                    930725
+proto:                  https
+domain:                 axieinfinity.com
+uniq_smart_contracts:   4
+uniq_ids:               285741
+example_uri:            https://axieinfinity.com/api/axies/259
+example_name:           Wrapped Axie
+example_symbol:         wAXIE
+example_smart_contract: 1e7e42ff9a6c60ad5b7452fdc3a20c3a06fde21a
+
+Row 10:
+───────
+cnt:                    862904
+proto:                  https
+domain:                 artblocks.io
+uniq_smart_contracts:   286
+uniq_ids:               257527
+example_uri:            https://api.artblocks.io/token/28
+example_name:           Art Blocks
+example_symbol:         BLOCKS
+example_smart_contract: 059edd72cd353df5106d2b9cc5ab83a52287ac3a
+
+Row 11:
+───────
+cnt:                    446172
+proto:                  https
+domain:                 niftygateway.com
+uniq_smart_contracts:   3343
+uniq_ids:               202782
+example_uri:            https://api.niftygateway.com/akuchaptervii/33800010025
+example_name:           Chapter 7: Candle by Micah Johnson
+example_symbol:         CHAPTERCANDLEBYMICAHJOHNSON
+example_smart_contract: 001400c1bfb953fc5a126e371f0a70dca1050595
+
+Row 12:
+───────
+cnt:                    308665
+proto:                  https
+domain:                 post.at
+uniq_smart_contracts:   15
+uniq_ids:               164695
+example_uri:            https://crypto.post.at/CS1/meta/44301
+example_name:           Crypto stamp Edition 1
+example_symbol:         CS1
+example_smart_contract: 7e789e2dd1340971de0a9bca35b14ac0939aa330
+
+Row 13:
+───────
+cnt:                    160496
+proto:                  https
+domain:                 mint.fun
+uniq_smart_contracts:   1
+uniq_ids:               161699
+example_uri:            https://mint.fun/api/mintfun/fundrop/token/38056.json
+example_name:           mint.fun !fundrop pass
+example_symbol:         FUNPASS
+example_smart_contract: 0000000000664ceffed39244a8312bd895470803
+
+Row 14:
+───────
+cnt:                    254605
+proto:                  https
+domain:                 chaincuties.com
+uniq_smart_contracts:   1
+uniq_ids:               125653
+example_uri:            https://chaincuties.com/rest/meta/28081.json
+example_name:           BlockchainCuties
+example_symbol:         BC
+example_smart_contract: d73be539d6b2076bab83ca6ba62dfe189abc6bbe
+
+Row 15:
+───────
+cnt:                    623900
+proto:                  https
+domain:                 sandbox.game
+uniq_smart_contracts:   17
+uniq_ids:               118440
+example_uri:            https://api.sandbox.game/lands/80846/metadata.json
+example_name:           Sandbox's LANDs
+example_symbol:         LAND
+example_smart_contract: 50f5474724e0ee42d9a4e711ccfb275809fd6d4a
+
+Row 16:
+───────
+cnt:                    338154
+proto:                  https
+domain:                 foundation.app
+uniq_smart_contracts:   11
+uniq_ids:               117705
+example_uri:            https://ipfs.foundation.app/ipfs/QmdzDcpjSr1mttdoRQx21jy1iSRuCo9TKyFTeXn7iJzPeh/metadata.json
+example_name:           Foundation
+example_symbol:         FND
+example_smart_contract: 3b3ee1931dc30c1957379fac9aba94d1c48a5405
+
+Row 17:
+───────
+cnt:                    1172058
+proto:
+domain:
+uniq_smart_contracts:   4255
+uniq_ids:               115090
+example_uri:            5
+example_name:
+example_symbol:
+example_smart_contract: 00bccea7a6c4c4ec74a8a07c982b95e59c1760aa
+
+Row 18:
+───────
+cnt:                    613063
+proto:                  https
+domain:                 otherside.xyz
+uniq_smart_contracts:   26
+uniq_ids:               100428
+example_uri:            https://api.otherside.xyz/lands/19714
+example_name:           Otherdeed
+example_symbol:         OTHR
+example_smart_contract: 34d85c9cdeb23fa97cb08333b511ac86e1c4e258
+
+Row 19:
+───────
+cnt:                    123715
+proto:                  https
+domain:                 altcoins.gg
+uniq_smart_contracts:   1
+uniq_ids:               100164
+example_uri:            https://assets.altcoins.gg/v1/metadata/1814.json
+example_name:           AltCoins
+example_symbol:         ALTCOIN
+example_smart_contract: 1ffe11b9fb7f6ff1b153ab8608cf403ecaf9d44a
+
+Row 20:
+───────
+cnt:                    4850311
+proto:                  https
+domain:                 amazonaws.com
+uniq_smart_contracts:   1981
+uniq_ids:               97613
+example_uri:            https://rplanet-placeholder.s3.amazonaws.com/metadata/228
+example_name:           R Planet
+example_symbol:         RPlanet
+example_smart_contract: 656d34a8309363302e46de99853f4cef30b85a1d
+
+Row 21:
+───────
+cnt:                    104096
+proto:                  https
+domain:                 zerion.io
+uniq_smart_contracts:   2
+uniq_ids:               93896
+example_uri:            https://dna.zerion.io/api/v1/avatars/onepointo/3427
+example_name:           Zerion DNA 1.0
+example_symbol:         DNA
+example_smart_contract: 932261f9fc8da46c4a22e31b45c4de60623848bf
+
+Row 22:
+───────
+cnt:                    8084895
+proto:                  https
+domain:                 mypinata.cloud
+uniq_smart_contracts:   3557
+uniq_ids:               88094
+example_uri:            https://solarsoft.mypinata.cloud/ipfs/QmfDZe6QUrEDgb4ibahRu78oCQdiCbrsy9x1RNnFu5efzD
+example_name:           Krypto Alienz POAP
+example_symbol:         KAPOAP
+example_smart_contract: 005c4a14fb5ecef34b793aa08bb115af7467a8b7
+
+Row 23:
+───────
+cnt:                    105505
+proto:                  https
+domain:                 bitski.com
+uniq_smart_contracts:   219
+uniq_ids:               80760
+example_uri:            https://api.bitski.com/contracts/631162bd-e5bc-429a-9cdd-e364cd1523af/token-metadata/{id}
+example_name:
+example_symbol:
+example_smart_contract: 025d7317c2a6dd6cd8b09db193e86bd5509c1505
+
+Row 24:
+───────
+cnt:                    77609
+proto:                  https
+domain:                 playertokens.co
+uniq_smart_contracts:   2
+uniq_ids:               74203
+example_uri:            https://api.playertokens.co/api/PlayerTokenAssets/28178/metadata
+example_name:           Player Tokens
+example_symbol:         PTI
+example_smart_contract: 9d9c250311b65803c895cc77f878b8092019dedc
+
+Row 25:
+───────
+cnt:                    137129
+proto:                  https
+domain:                 nftstar.com
+uniq_smart_contracts:   13
+uniq_ids:               69909
+example_uri:            https://cdn.nftstar.com/neymar/bmmj/metadata/86
+example_name:           BMM Jersey
+example_symbol:         BMMJ
+example_smart_contract: 07b6a2b87f1836d6498e6840e2e3ac20567086bb
+
+Row 26:
+───────
+cnt:                    165369
+proto:                  http
+domain:                 amazonaws.com
+uniq_smart_contracts:   39
+uniq_ids:               69846
+example_uri:            http://ec2-107-22-115-221.compute-1.amazonaws.com:8080/201
+example_name:           ETHRegistrarLinageeWrapper
+example_symbol:         ERLW
+example_smart_contract: 2cc8342d7c8bff5a213eb2cde39de9a59b3461a7
+
+Row 27:
+───────
+cnt:                    80577
+proto:                  https
+domain:                 netlify.app
+uniq_smart_contracts:   37
+uniq_ids:               62785
+example_uri:            https://void-explorer.netlify.app/void_metadata/2297
+example_name:           Visitors of Imma Degen
+example_symbol:         VOID
+example_smart_contract: db55584e5104505a6b38776ee4dcba7dd6bb25fe
+
+Row 28:
+───────
+cnt:                    188779
+proto:                  https
+domain:                 marble.cards
+uniq_smart_contracts:   3
+uniq_ids:               60452
+example_uri:            https://ws.marble.cards/marble/token/7
+example_name:           MARBLE-NFT
+example_symbol:         MRBLNFT
+example_smart_contract: 1d963688fe2209a98db35c67a041524822cf04ff
+
+Row 29:
+───────
+cnt:                    59112
+proto:                  https
+domain:                 mars4.me
+uniq_smart_contracts:   1
+uniq_ids:               59093
+example_uri:            https://app.mars4.me/tokens/3661
+example_name:           Mars4
+example_symbol:         MARS4
+example_smart_contract: df9aa1012fa49dc1d2a306e3e65ef1797d2b5fbb
+
+Row 30:
+───────
+cnt:                    70182
+proto:                  https
+domain:                 alteredstatemachine.xyz
+uniq_smart_contracts:   1
+uniq_ids:               58913
+example_uri:            https://meta.gen-ii-brains.alteredstatemachine.xyz/ipfs/QmUawFgby4HLoErugb3ejgXK7WR27p6fe29NKNRUvdNi7H
+example_name:           ASMBrainGenII
+example_symbol:         ASMBrainGenII
+example_smart_contract: 86599b800e23036d761f43d7516092447295659f
+
+Row 31:
+───────
+cnt:                    187587
+proto:                  https
+domain:                 raid.party
+uniq_smart_contracts:   4
+uniq_ids:               57498
+example_uri:            https://api.raid.party/metadata/hero/20
+example_name:           Hero
+example_symbol:         HERO
+example_smart_contract: 966731dfd9b9925dd105ff465687f5aa8f54ee9f
+
+Row 32:
+───────
+cnt:                    226428
+proto:                  https
+domain:                 veefriends.com
+uniq_smart_contracts:   21
+uniq_ids:               55287
+example_uri:            https://veefriends.com/api/metadata/vfmd/38
+example_name:           VeeFriends Mini Drops
+example_symbol:         VFMD
+example_smart_contract: 13927739076014913a3a7c207ef84c5be4780014
+
+Row 33:
+───────
+cnt:                    134799
+proto:                  https
+domain:                 dego.finance
+uniq_smart_contracts:   4
+uniq_ids:               53118
+example_uri:            https://api.dego.finance/gego-token/2093
+example_name:           gego.dego
+example_symbol:         GEGO
+example_smart_contract: 27b4bc90fbe56f02ef50f2e2f79d7813aa8941a7
+
+Row 34:
+───────
+cnt:                    57815
+proto:                  https
+domain:                 everai.xyz
+uniq_smart_contracts:   2
+uniq_ids:               52035
+example_uri:            https://api.everai.xyz/memory-cores/1380
+example_name:           EveraiMemoryCore
+example_symbol:         EveraiMemoryCore
+example_smart_contract: 2d3e3def08848d405df3418bf91aa6876a057cd7
+
+Row 35:
+───────
+cnt:                    120132
+proto:                  https
+domain:                 emblemvault.io
+uniq_smart_contracts:   18
+uniq_ids:               51864
+example_uri:            https://v2.emblemvault.io/v2/meta/13595189794038966744503192513260627100974597316797943678634960004611728262709
+example_name:
+example_symbol:
+example_smart_contract: 7e6027a6a84fc1f6db6782c523efe62c923e46ff
+
+Row 36:
+───────
+cnt:                    5879523
+proto:                  https
+domain:                 pinata.cloud
+uniq_smart_contracts:   3994
+uniq_ids:               50046
+example_uri:            https://gateway.pinata.cloud/ipfs/Qmb1KYEMxL3qQag827kxsaghkg7fhG4dg7nDvfTsrbUFEp
+example_name:           Unique Explorers
+example_symbol:         UE
+example_smart_contract: 3b2b3b00752da9308261ce75aef47dd1abf763fb
+
+Row 37:
+───────
+cnt:                    93368
+proto:                  https
+domain:                 puzlpunks.com
+uniq_smart_contracts:   14
+uniq_ids:               49860
+example_uri:            https://prereveal.puzlpunks.com/migrate/meta/monks/367
+example_name:           Monks of Crypto v2
+example_symbol:         CRYPTOMONKS
+example_smart_contract: cfbf7fc93a519b55418974c7e0eb4e2447df505b
+
+Row 38:
+───────
+cnt:                    305926
+proto:                  https
+domain:                 mycryptoheroes.net
+uniq_smart_contracts:   9
+uniq_ids:               49072
+example_uri:            https://www.mycryptoheroes.net/metadata/hero/20010062
+example_name:           MyCryptoHeroes:Hero
+example_symbol:         MCHH
+example_smart_contract: 273f7f8e6489682df756151f5525576e322d51a3
+
+Row 39:
+───────
+cnt:                    107074
+proto:                  https
+domain:                 seekers.xyz
+uniq_smart_contracts:   2
+uniq_ids:               47895
+example_uri:            https://api.seekers.xyz/seeker/2229
+example_name:           Seekers
+example_symbol:         SEEKERS
+example_smart_contract: aaf03a65cbd8f01b512cd8d530a675b3963de255
+
+Row 40:
+───────
+cnt:                    294118
+proto:                  https
+domain:                 galaxy.eco
+uniq_smart_contracts:   115
+uniq_ids:               47666
+example_uri:            https://graphigo.prd.galaxy.eco/metadata/0x02449b4b6405db167fa65545f1bc8fd74a9cc1f7/103.json
+example_name:           Club Salad NFT - ETH Contract
+example_symbol:         CSALD
+example_smart_contract: 02449b4b6405db167fa65545f1bc8fd74a9cc1f7
+
+Row 41:
+───────
+cnt:                    71760
+proto:                  https
+domain:                 augminteddb-api.herokuapp.com
+uniq_smart_contracts:   1
+uniq_ids:               46675
+example_uri:            https://augminteddb-api.herokuapp.com/scientists/token?tokenNum=32786
+example_name:           Scientists
+example_symbol:         SCIENTIST
+example_smart_contract: a310425046661c523d98344f7e9d66b32195365d
+
+Row 42:
+───────
+cnt:                    53655
+proto:                  https
+domain:                 neon-district-game-item-api.herokuapp.com
+uniq_smart_contracts:   2
+uniq_ids:               45517
+example_uri:            https://neon-district-game-item-api.herokuapp.com/api/token/245/16266
+example_name:           Neon District In-Game Item
+example_symbol:         NDIGI
+example_smart_contract: 1276dce965ada590e42d62b3953ddc1ddceb0392
+
+Row 43:
+───────
+cnt:                    423442
+proto:                  https
+domain:                 ondigitalocean.app
+uniq_smart_contracts:   154
+uniq_ids:               44277
+example_uri:            https://monkfish-app-3fwkv.ondigitalocean.app/api/token/6072.json
+example_name:           Inferno Friends
+example_symbol:         INFR
+example_smart_contract: 022308cfb134b955f455cdabf259d9b0bcf26210
+
+Row 44:
+───────
+cnt:                    118557
+proto:                  https
+domain:                 passage.xyz
+uniq_smart_contracts:   33
+uniq_ids:               43094
+example_uri:            https://api.passage.xyz/passport/metadata/1/0x2b3c48be4fb33b0724214aff12b086b0214f8f15/7
+example_name:           CoinDesk
+example_symbol:         CDESK
+example_smart_contract: 2b3c48be4fb33b0724214aff12b086b0214f8f15
+
+Row 45:
+───────
+cnt:                    58323
+proto:                  https
+domain:                 nametag.org
+uniq_smart_contracts:   7
+uniq_ids:               42384
+example_uri:            https://nametag.org/api/metadata/0xC53Dc593b69c67A209Cf70d4172078c9125449bB/137
+example_name:           Nametag
+example_symbol:         NT
+example_smart_contract: c53dc593b69c67a209cf70d4172078c9125449bb
+
+Row 46:
+───────
+cnt:                    146608
+proto:                  https
+domain:                 infura.io
+uniq_smart_contracts:   276
+uniq_ids:               40922
+example_uri:            https://ipfs.infura.io/ipfs/QmbCP7hsxsHkEzTq84PKWn6oUxy1CLnrbvSBRhmSrUmuTz
+example_name:           CryptoArtToken
+example_symbol:         CART
+example_smart_contract: 3ad503084f1bd8d15a7f5ebe7a038c064e1e3fa1
+
+Row 47:
+───────
+cnt:                    167721
+proto:                  https
+domain:                 gold-hunt-game.herokuapp.com
+uniq_smart_contracts:   3
+uniq_ids:               40001
+example_uri:            https://gold-hunt-game.herokuapp.com/house/token/0
+example_name:           GHGHouse
+example_symbol:         GHGHOUSE
+example_smart_contract: 003ed3a4e2e9a4a91a56dc2adccb9d23cc0e3851
+
+Row 48:
+───────
+cnt:                    41306
+proto:                  https
+domain:                 colyseus.dev
+uniq_smart_contracts:   1
+uniq_ids:               40000
+example_uri:            https://dodgersnftapi.colyseus.dev/api/token/
+example_name:           LucidSight-DODGERS-NFT
+example_symbol:         DNFTCB
+example_smart_contract: 05dbbe4baed86d9b1da83e67dea6326e2617dad2
+
+Row 49:
+───────
+cnt:                    62008
+proto:                  https
+domain:                 solarbots.io
+uniq_smart_contracts:   5
+uniq_ids:               39944
+example_uri:            https://api.solarbots.io/mk1/52.json
+example_name:           Solarbots
+example_symbol:         MK1
+example_smart_contract: 8009250878ed378050ef5d2a48c70e24eb2ede7e
+
+Row 50:
+───────
+cnt:                    52931
+proto:                  https
+domain:                 cyberbrokers.com
+uniq_smart_contracts:   2
+uniq_ids:               39790
+example_uri:            https://m.cyberbrokers.com/eth/part/636
+example_name:           TPL Revealed Mech Parts
+example_symbol:         TPLRMP
+example_smart_contract: 7bc1e07cdfa283db7cf3c680d16ca7f161a64046
+
+50 rows in set. Elapsed: 8.861 sec. Processed 245.87 million rows, 126.46 GB (27.75 million rows/s., 14.27 GB/s.)

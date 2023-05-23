@@ -1,0 +1,173 @@
+SELECT
+    count() AS cnt,
+    protocol(Transfer_URI) AS proto,
+    cutToFirstSignificantSubdomain(Transfer_URI) AS domain,
+    uniq(Transfer_Currency_SmartContract) AS uniq_smart_contracts,
+    uniq(Transfer_Id) AS uniq_ids
+FROM eth.transfers_nft_currency
+WHERE (Transfer_Currency_HasURI = 1) AND (Transfer_URI != '')
+GROUP BY
+    proto,
+    domain
+ORDER BY uniq_ids DESC
+LIMIT 50
+
+Query id: 5f5a6fb4-f66a-45c2-b2da-29582b4fc301
+┌──────cnt─┬─proto─┬─domain────────────────────────────────────┬─uniq_smart_contracts─┬─uniq_ids─┐
+│ 15725045 │ https │ immutable.com                             │                   28 │  7052744 │
+│  3741870 │ https │ opensea.io                                │                 1156 │  2053364 │
+│ 78569301 │ ipfs  │                                           │               114976 │   960468 │
+│ 11669163 │ data  │                                           │                11808 │   709175 │
+│   644979 │ https │ godsunchained.com                         │                    5 │   606886 │
+│   524389 │ https │ codexprotocol.com                         │                    3 │   496343 │
+│  1197123 │ https │ sorare.com                                │                    5 │   337697 │
+│   415646 │ https │ hypernft.world                            │                    5 │   293326 │
+│   930725 │ https │ axieinfinity.com                          │                    4 │   285741 │
+│   862904 │ https │ artblocks.io                              │                  286 │   257527 │
+│   446172 │ https │ niftygateway.com                          │                 3343 │   202782 │
+│   308665 │ https │ post.at                                   │                   15 │   164695 │
+│   160496 │ https │ mint.fun                                  │                    1 │   161699 │
+│   254605 │ https │ chaincuties.com                           │                    1 │   125653 │
+│   623900 │ https │ sandbox.game                              │                   17 │   118440 │
+│   338154 │ https │ foundation.app                            │                   11 │   117705 │
+│  1172058 │       │                                           │                 4255 │   115090 │
+│   613063 │ https │ otherside.xyz                             │                   26 │   100428 │
+│   123715 │ https │ altcoins.gg                               │                    1 │   100164 │
+│  4850311 │ https │ amazonaws.com                             │                 1981 │    97613 │
+│   104096 │ https │ zerion.io                                 │                    2 │    93896 │
+│  8084895 │ https │ mypinata.cloud                            │                 3557 │    88094 │
+│   105505 │ https │ bitski.com                                │                  219 │    80760 │
+│    77609 │ https │ playertokens.co                           │                    2 │    74203 │
+│   137129 │ https │ nftstar.com                               │                   13 │    69909 │
+│   165369 │ http  │ amazonaws.com                             │                   39 │    69846 │
+│    80577 │ https │ netlify.app                               │                   37 │    62785 │
+│   188779 │ https │ marble.cards                              │                    3 │    60452 │
+│    59112 │ https │ mars4.me                                  │                    1 │    59093 │
+│    70182 │ https │ alteredstatemachine.xyz                   │                    1 │    58913 │
+│   187587 │ https │ raid.party                                │                    4 │    57498 │
+│   226428 │ https │ veefriends.com                            │                   21 │    55287 │
+│   134799 │ https │ dego.finance                              │                    4 │    53118 │
+│    57815 │ https │ everai.xyz                                │                    2 │    52035 │
+│   120132 │ https │ emblemvault.io                            │                   18 │    51864 │
+│  5879523 │ https │ pinata.cloud                              │                 3994 │    50046 │
+│    93368 │ https │ puzlpunks.com                             │                   14 │    49860 │
+│   305926 │ https │ mycryptoheroes.net                        │                    9 │    49072 │
+│   107074 │ https │ seekers.xyz                               │                    2 │    47895 │
+│   294118 │ https │ galaxy.eco                                │                  115 │    47666 │
+│    71760 │ https │ augminteddb-api.herokuapp.com             │                    1 │    46675 │
+│    53655 │ https │ neon-district-game-item-api.herokuapp.com │                    2 │    45517 │
+│   423442 │ https │ ondigitalocean.app                        │                  154 │    44277 │
+│   118557 │ https │ passage.xyz                               │                   33 │    43094 │
+│    58323 │ https │ nametag.org                               │                    7 │    42384 │
+│   146608 │ https │ infura.io                                 │                  276 │    40922 │
+│   167721 │ https │ gold-hunt-game.herokuapp.com              │                    3 │    40001 │
+│    41306 │ https │ colyseus.dev                              │                    1 │    40000 │
+│    62008 │ https │ solarbots.io                              │                    5 │    39944 │
+│    52931 │ https │ cyberbrokers.com                          │                    2 │    39790 │
+└──────────┴───────┴───────────────────────────────────────────┴──────────────────────┴──────────┘
+
+50 rows in set. Elapsed: 9.289 sec. Processed 245.87 million rows, 117.84 GB (26.47 million rows/s., 12.69 GB/s.)
+
+Query id: e9e9080d-ac31-4745-9dad-0abeee205939
+
+15725045,"https","immutable.com",28,7052744
+3741870,"https","opensea.io",1156,2053364
+78569301,"ipfs","",114976,960468
+11669163,"data","",11808,709175
+644979,"https","godsunchained.com",5,606886
+524389,"https","codexprotocol.com",3,496343
+1197123,"https","sorare.com",5,337697
+415646,"https","hypernft.world",5,293326
+930725,"https","axieinfinity.com",4,285741
+862904,"https","artblocks.io",286,257527
+446172,"https","niftygateway.com",3343,202782
+308665,"https","post.at",15,164695
+160496,"https","mint.fun",1,161699
+254605,"https","chaincuties.com",1,125653
+623900,"https","sandbox.game",17,118440
+338154,"https","foundation.app",11,117705
+1172058,"","",4255,115090
+613063,"https","otherside.xyz",26,100428
+123715,"https","altcoins.gg",1,100164
+4850311,"https","amazonaws.com",1981,97613
+104096,"https","zerion.io",2,93896
+8084895,"https","mypinata.cloud",3557,88094
+105505,"https","bitski.com",219,80760
+77609,"https","playertokens.co",2,74203
+137129,"https","nftstar.com",13,69909
+165369,"http","amazonaws.com",39,69846
+80577,"https","netlify.app",37,62785
+188779,"https","marble.cards",3,60452
+59112,"https","mars4.me",1,59093
+70182,"https","alteredstatemachine.xyz",1,58913
+187587,"https","raid.party",4,57498
+226428,"https","veefriends.com",21,55287
+134799,"https","dego.finance",4,53118
+57815,"https","everai.xyz",2,52035
+120132,"https","emblemvault.io",18,51864
+5879523,"https","pinata.cloud",3994,50046
+93368,"https","puzlpunks.com",14,49860
+305926,"https","mycryptoheroes.net",9,49072
+107074,"https","seekers.xyz",2,47895
+294118,"https","galaxy.eco",115,47666
+71760,"https","augminteddb-api.herokuapp.com",1,46675
+53655,"https","neon-district-game-item-api.herokuapp.com",2,45517
+423442,"https","ondigitalocean.app",154,44277
+118557,"https","passage.xyz",33,43094
+58323,"https","nametag.org",7,42384
+146608,"https","infura.io",276,40922
+167721,"https","gold-hunt-game.herokuapp.com",3,40001
+41306,"https","colyseus.dev",1,40000
+62008,"https","solarbots.io",5,39944
+52931,"https","cyberbrokers.com",2,39790
+
+50 rows in set. Elapsed: 9.166 sec. Processed 245.87 million rows, 117.84 GB (26.82 million rows/s., 12.86 GB/s.)
+
+SELECT
+    count() AS cnt,
+    protocol(Transfer_URI) AS proto,
+    uniq(Transfer_Currency_SmartContract) AS uniq_smart_contracts,
+    uniq(Transfer_Id) AS uniq_ids
+FROM eth.transfers_nft_currency
+WHERE (Transfer_Currency_HasURI = 1) AND (Transfer_URI != '')
+GROUP BY proto
+ORDER BY uniq_ids DESC
+LIMIT 50
+FORMAT CSV
+
+Query id: 203988ca-3fc3-4553-bbd8-adf02e48261d
+
+111374914,"https",94093,11287420
+78632173,"ipfs",115054,960468
+11669163,"data",11808,709175
+1607794,"",5196,136148
+7393135,"http",3134,86132
+483253,"ar",1453,21095
+14601,"Ipfs",23,6970
+1016,"pokmihttps",1,484
+530,"dcl",3,306
+739,"ifps",16,291
+140,"IPFS",6,127
+55,"ifpss",1,53
+363,"ttps",4,50
+76,"about",1,35
+30,"nft",1,30
+28,"ethereum",6,13
+19,"ipsf",2,9
+10,"s3",2,7
+6,"htps",1,6
+5,"ipns",3,5
+19,"Hourglass",1,4
+4,"ipft",1,4
+4,"hhttps",2,3
+2,"iprs",1,2
+2,"file",1,2
+1,"Https",1,1
+2,"IPI",1,1
+1,"hpfs",1,1
+4,"magnet",1,1
+1,"google.comhttps",1,1
+1,"sftp",1,1
+2,"CT1",1,1
+1,"localhost",1,1
+2,"pasar",1,1
