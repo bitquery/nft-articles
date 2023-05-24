@@ -42,44 +42,8 @@ properties, like name, image, properties are defined in the metadata. Example of
       "value": "tan"
     },
     {
-      "trait_type": "Background",
-      "value": "Genesis"
-    },
-    {
-      "trait_type": "Eye Color",
-      "value": "Green"
-    },
-    {
-      "trait_type": "Face",
-      "value": "Shining"
-    },
-    {
-      "trait_type": "Hair",
-      "value": "Barista"
-    },
-    {
-      "trait_type": "Hair Color",
-      "value": "Blonde"
-    },
-    {
       "trait_type": "Hat",
       "value": "Angel Halo"
-    },
-    {
-      "trait_type": "Face Accessory",
-      "value": "None"
-    },
-    {
-      "trait_type": "Top",
-      "value": "Track Jacket"
-    },
-    {
-      "trait_type": "Damage Multiplier",
-      "value": 15
-    },
-    {
-      "trait_type": "Enhancement",
-      "value": 1
     },
     {
       "trait_type": "Party Size",
@@ -103,6 +67,8 @@ it defines
 <img src="https://cdn.raid.party/hero/20.png"  width="300" height="300">
 
 There may be other metadata, NFT creators can extend the metadata format.
+
+<div style="page-break-after: always"></div>
 
 ## Why Metadata Storage Important?
 
@@ -265,6 +231,8 @@ To see it closer we build the word cloud ( the bigger teh word, the more popular
 ![Domain Word Cloud in BSC Mainnet](./images/bsc-domains-wordcloud.png)
 
 There are some domains used in both networks, notably **pinata.cloud**
+
+<div style='page-break-after: always; width: 100%'> </div>
 
 
 ##  Conclusion
