@@ -78,11 +78,14 @@ allowing to get URI for the metadata for a given ID of the token.
 
 In some cases, NFT token and URI includes the cryptographic hash of the content of the token, which
 prevents from metadata manipulations. However, the metadata existence and accessibility play important
-role in NFT value. If the metadata will be lost, the hash will not allow to re-cover the missing metadata,
+role in NFT value. 
+
+If the metadata will be lost, the hash will not allow to re-cover the missing metadata,
 and the token will be virtually useless, as will loose everything except its ID.
 
 As blockchain is decentralised and ensures persistence of NFT identification,
 and security of ownership and transfers, the same can be expected from the metadata storage.
+
 However, as we found in this analysis, it is not yet true in most cases.
 
 
@@ -100,6 +103,17 @@ and no other alternatives found.
 
 ## Metadata Protocols Distribution Analysis
 
+We measure the distribution by several criteria, as unique smart contract, unique IDs
+and transfers count. 
+
+Every metric means different. Unique smart contracts means wider adoption
+from the developers of NFT projects. 
+
+Unique ID means the scale of NFT tokens. Transfers count
+characterises usage and trading.
+
+
+
 The distribution of usage between the protocols for Ethereum and BSC is shown below:
 
 ### Ethereum Mainnnet NFT Storage Protocols
@@ -110,9 +124,9 @@ The distribution of usage between the protocols for Ethereum and BSC is shown be
 
 The distributions are built by 3 criteria:
 
-* left - by number of NFT transfers using tokens with selected storage protocol
-* middle - by count of unique smart contracts of tokens with protocol
-* right - by unique NFT ids used with selected protocol
+* left - by number of NFT transfers using tokens with selected storage protocol. This shows the usage and adoption of NFT by traders and users. However it sometimes just shows the activity of airdrops...
+* middle - by count of unique smart contracts of tokens with protocol. Developers of smart contrcts for NFT projects select this type of storage protocol
+* right - by unique NFT ids used with selected protocol. Count of unique NFT tokens present
 
 As you see, in both networks http/https protocols mostly prevailing, especially in BSC network.
 In Ethereum mainnet, IPFS protocol has significant usage, especially in smart contract count.
@@ -121,6 +135,10 @@ Https is much more popular than http, and that makes a lot of sense, as there wi
 issues to use http protocol in browser, especially on 3d party https web pages.
 
 Data protocol has some niche, limited to 10-20% in both networks.
+
+Note that this analysis does not include NFT, which do not define URL for metadata ( as earlier Crypto Kitties).
+They imply using of some web site or storage, but the smart contract or on-chain transactions do not carry this information.
+We can not include them in this analysis.
 
 ## Dynamics for Metadata Protocols Usage
 
@@ -231,8 +249,6 @@ To see it closer we build the word cloud ( the bigger teh word, the more popular
 ![Domain Word Cloud in BSC Mainnet](./images/bsc-domains-wordcloud.png)
 
 There are some domains used in both networks, notably **pinata.cloud**
-
-<div style='page-break-after: always; width: 100%'> </div>
 
 
 ##  Conclusion
