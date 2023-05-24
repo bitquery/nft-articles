@@ -230,6 +230,7 @@ We analysed all NFT transactions to figure out the most popular domains:
 
 ##  Domains in BSC Mainnet
 
+
 ![Domains in BSC Mainnet](./images/bsc-domains.png)
 
 This distribution is build by number of uniaue NFT IDs in use, as
