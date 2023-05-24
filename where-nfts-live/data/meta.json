@@ -1,0 +1,59 @@
+{
+  "description": "RaidParty - Hero",
+  "image": "https://cdn.raid.party/hero/20.png",
+  "name": "Hero #20",
+  "attributes": [
+    {
+      "trait_type": "Body",
+      "value": "tan"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Eye Color",
+      "value": "Green"
+    },
+    {
+      "trait_type": "Face",
+      "value": "Shining"
+    },
+    {
+      "trait_type": "Hair",
+      "value": "Barista"
+    },
+    {
+      "trait_type": "Hair Color",
+      "value": "Blonde"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "Angel Halo"
+    },
+    {
+      "trait_type": "Face Accessory",
+      "value": "None"
+    },
+    {
+      "trait_type": "Top",
+      "value": "Track Jacket"
+    },
+    {
+      "trait_type": "Damage Multiplier",
+      "value": 15
+    },
+    {
+      "trait_type": "Enhancement",
+      "value": 1
+    },
+    {
+      "trait_type": "Party Size",
+      "value": 6
+    },
+    {
+      "trait_type": "Genesis",
+      "value": "True"
+    }
+  ]
+}
